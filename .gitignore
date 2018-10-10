@@ -6,3 +6,4 @@ venv
 *__pycache__*
 storage/
 test.py
+*.mp3
