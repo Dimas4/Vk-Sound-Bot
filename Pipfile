@@ -8,6 +8,7 @@ requests = "*"
 gtts = "*"
 vk-api = "*"
 pyyaml = "*"
+redis = "*"
 
 [dev-packages]
 

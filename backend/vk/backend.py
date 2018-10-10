@@ -1,7 +1,7 @@
 import json
 import requests
 
-from .generate_vk_instance.generate_instance import generate_instance
+from backend.generate_vk_instance.generate_instance import generate_instance
 from gtts import gTTS
 
 
