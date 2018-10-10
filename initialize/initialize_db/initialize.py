@@ -1,6 +1,6 @@
 import importlib
 
 
-def initialize(db):
-    module = importlib.import_module(db, ".")
-    return module.db
+def initialize(path, **kwargs):
+    module = importlib.import_module(path, ".")
+    return module.Db(kwargs)
