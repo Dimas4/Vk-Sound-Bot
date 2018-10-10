@@ -1,10 +1,13 @@
 import os
 
 import yaml
+from exception.exception import ConfigDoesNotExist
+from context_manager.manager import manager
 
 
 def parse(dir, name):
-    with open(os.path.join(dir, name), 'r') as stream:
+    path = os.path.join(dir, name)
+    with manager(path, 'r', ConfigDoesNotExist(path)) as stream:
         config = yaml.load(stream)
 
     return config['token'], config['backend'], config['filename']

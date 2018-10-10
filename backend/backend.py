@@ -28,7 +28,8 @@ class VkBot:
 
     def upload_file(self, path, id):
         audio = {'file': (path, open(path, 'rb'))}
-        upload_url = self.vk.method('docs.getMessagesUploadServer', {'type': 'audio_message', 'peer_id': id})['upload_url']
+        upload_url = self.vk.method('docs.getMessagesUploadServer',
+                                    {'type': 'audio_message', 'peer_id': id})['upload_url']
         upload = requests.post(upload_url, files=audio)
         result = json.loads(upload.text)['file']
         saved = self.vk.method('docs.save', {'file': result, 'title': 'ssasad.ogg'})[0]
