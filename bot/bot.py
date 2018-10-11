@@ -12,7 +12,10 @@ def start(token, backend, db, filename):
     db_path = init_db(path, **db)
     db = Db(db_path)
 
+    print('Start')
+    
     while True:
+
         try:
             messages = bot.get_unread_messages()
             if messages["count"] >= 1:
@@ -20,8 +23,8 @@ def start(token, backend, db, filename):
                 bot.convert_text_to_voice(body)
                 uploaded_voice = bot.upload_file(filename, id)
                 bot.send_message(id, attach=uploaded_voice)
-
                 db.rpush(id, body)
+                print('Запрос:', id, body)
 
             time.sleep(1)
         except Exception as e:
